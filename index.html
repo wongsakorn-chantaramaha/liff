@@ -73,25 +73,25 @@
 
     async function getUserProfile() {
       const profile = await liff.getProfile()
-      document.getElementById("pictureUrl").scr = profile.pictureUrl
-      document.getElementById("userId").append(profile.userId)
-      document.getElementById("displayName").append(profile.displayName)
-      document.getElementById("statusMessage").append(profile.statusMessage)
-      document.getElementById("decodedIDToken").append(profile.statusMessage)
+      document.getElementById("pictureUrl").src = profile.pictureUrl;
+      document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId;
+      document.getElementById("displayName").append(profile.displayName);
+      document.getElementById("statusMessage").append(profile.statusMessage);
+      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email);
     }
 
     function getEnvironment() {
-      document.getElementById("os").append(liff.getOS())
-      document.getElementById("language").append(liff.getLanguage())
+      document.getElementById("os").append(liff.getOS());
+      document.getElementById("language").append(liff.getLanguage());
       document.getElementById("version").append(liff.getVersion())
-      document.getElementById("accessToken").append(liff.getAccessToken())
-      document.getElementById("isInClient").append(liff.isInClient())
+      document.getElementById("accessToken").append(liff.getAccessToken());
+      document.getElementById("isInClient").append(liff.isInClient());
       if(liff.isInClient()){
-        document.getElementById("btnLogOut").style.display="none"
+        document.getElementById("btnLogOut").style.display="none";
       } else {
-        document.getElementById("btnMsg").style.display="none"
-        document.getElementById("btnScanCode").style.display="none"
-        document.getElementById("btnClose").style.display="none"
+        document.getElementById("btnMsg").style.display="none";
+        document.getElementById("btnScanCode").style.display="none";
+        document.getElementById("btnClose").style.display="none";
       }
     }
 
