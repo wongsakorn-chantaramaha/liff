@@ -69,15 +69,20 @@
     }
 
     function getContext() {
+      document.getElementById("type").append(liff.getContext().type);
+      document.getElementById("viewType").append(liff.getContext().viewType);
+      document.getElementById("utouId").append(liff.getContext().utouId);
+      document.getElementById("roomId").append(liff.getContext().roomId);
+      document.getElementById("groupId").append(liff.getContext().groupId);
     }
 
     async function getUserProfile() {
       const profile = await liff.getProfile()
       document.getElementById("pictureUrl").src = profile.pictureUrl;
-        document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId;
-        document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName;
-        document.getElementById("statusMessage").innerHTML = '<b>StatusMessage:</b> ' + profile.statusMessage;
-        document.getElementById("getDecodedIDToken").innerHTML = '<b>Email:</b> ' + liff.getDecodedIDToken().email;
+      document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId;
+      document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName;
+      document.getElementById("statusMessage").innerHTML = '<b>StatusMessage:</b> ' + profile.statusMessage;
+      document.getElementById("getDecodedIDToken").innerHTML = '<b>Email:</b> ' + liff.getDecodedIDToken().email;
     }
 
     function getEnvironment() {
@@ -100,7 +105,7 @@
       await liff.init({ liffId: "1655691785-yLoXRNPg" })
       getEnvironment()
       getUserProfile()
-      // getContext()
+      getContext()
       // getFriendship()
       // createUniversalLink()
     }
